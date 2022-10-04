@@ -1,0 +1,52 @@
+#header {
+    float: center
+}
+
+#container {
+    width: 980px;
+    margin: 0px auto;
+    padding-top: 10px;
+}
+
+#sidebar {
+    width: 20%;
+    font-size: larger;
+    float: left;
+}
+
+#content {
+    width: 80%;
+    float: right;
+}
+
+.username {
+    font-size: large;
+    font-weight: bold;
+}
+
+.message {
+    font-size: large
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    display: inline;
+}
+
+nav li a {
+    text-decoration: none;
+    padding: 8px;
+    background-color: #ddddee;
+    color: #000
+}
+
+nav li a:hover {
+    background-color: #555;
+    color: white;
+    text-decoration: none;
+}

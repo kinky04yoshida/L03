@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<%= stylesheet_link_tag "application.css", :media => "all" %>
+<html>
+    <title>App1</title>
+
+<body>
+  <div id="container">
+    <div id="header">
+      <%= render "header" %>
+      <h1>Twitterっぽいアプリ</h1>
+    </div>
+
+    <div id="sidebar">
+      <%= render "sidebar" %>
+        <nav>
+          <ul>
+            <p><li><a href=".">ホーム</a></li></p>
+            <p><li><a href=".">話題を検索</a></li></p>
+            <p><li><a href=".">通知</a></li></p>
+            <p><li><a href=".">メッセージ</a></li></p>
+            <p><li><a href=".">ブックマーク</a></li></p>
+            <p><li><a href=".">リスト</a></li></p>
+            <p><li><a href=".">プロフィール</a></li></p>
+            <p><li><a href=".">もっと見る</a></li></p>
+          </ul>
+          <p><%= link_to '新規Tweet', 'tweets/new' %></p>
+        </nav>
+    </div>
+    <div id="content">
+      <%= yield %>
+        <nav>
+          <ul>
+            <li><a href=".">ツイート</a></li>
+            <li><a href=".">返信</a></li>
+            <li><a href=".">メディア</a></li>
+            <li><a href=".">いいね</a></li>
+          </ul>
+        </nav>
+      
+      <% @tweets.each do |tweet| %>
+      <hr width="100%"><p><h class="username">ユーザー名</h>　<%= tweet["tdate"].strftime('%m月%d日') %></p>
+      <p class ="message"><%= tweet["message"] %></p>
+      <%= (Time.now - tweet["tdate"]).div(60) %>分前にツイート
+        <%= link_to '表示', "/tweets/#{tweet.id}" %>
+        <%= link_to '編集', "/tweets/#{tweet.id}/edit" %>
+        <%= link_to '削除', "/tweets/#{tweet.id}", method: :delete %>
+  <% end %>
+    </div>
+    <div id="footer">
+      <%= render "footer" %>
+    </div>
+  </div>
+</body>
+</html>
