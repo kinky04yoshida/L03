@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+  <head>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+<%= stylesheet_link_tag "application.css", :media => "all" %>
+<html>
+    <title>App1</title>
+
+<body>
+  <div id="container">
+    <div id="header">
+      <%= render "header" %>
+      <h1>Twitterっぽいアプリ</h1>
+    </div>
+
+    <div id="sidebar">
+      <%= render "sidebar" %>
+        <nav>
+          <ul>
+            <p><li><a href=".">ホーム</a></li></p>
+            <p><li><a href=".">話題を検索</a></li></p>
+            <p><li><a href=".">通知</a></li></p>
+            <p><li><a href=".">メッセージ</a></li></p>
+            <p><li><a href=".">ブックマーク</a></li></p>
+            <p><li><a href=".">リスト</a></li></p>
+            <p><li><a href=".">プロフィール</a></li></p>
+            <p><li><a href=".">もっと見る</a></li></p>
+          </ul>
+          <p><%= link_to '新規Tweet', 'tweets/new' %></p>
+        </nav>
+    </div>
+    <div id="content">
+      <%= yield %>
+      
+    </div>
+    <div id="footer">
+      <%= render "footer" %>
+    </div>
+  </div>
+</body>
+</html>
